@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- IONIC ICON -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Inventory Management</title>
+</head>
+<body>
+    <main>
+        <nav class="nav-bar">
+            <p class="inventory">Inventory dsaboard</p>
+            <div class="add-item">
+                <a class="product" href="{% url 'add_products' %}">Add new product</a>
+                <a class="csv" href="">Export as CSV</a>
+            </div>
+        </nav>
+
+        <section>
+            <div class="search">
+                <form action="">
+                    <input class="input" type="text" name="text" id="text" placeholder="Search" required>
+                </form>
+                <!-- <a href=""></a> -->
+                 <div class="icons">
+                     <a href="#" class="funnel"><ion-icon name="funnel-outline"></ion-icon></a>
+                     <a href="#" class="download"><ion-icon name="download-outline"></ion-icon></a>
+                     <a href="#" class="refresh"><ion-icon name="refresh-outline"></ion-icon></a>
+                 </div>
+            </div>
+
+            <div class="inventory-table">
+                <table border="1" width="100%">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Product ID</th>
+                            <th>Product Name</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Count</th>
+                            <th>Vendor</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <tr>
+                            <th scope="row"><input type="checkbox"></th>
+                            <td colspan="1" style="text-align: center;">1</td>
+                            <td colspan="1" style="text-align: center;">2</td>
+                            <td colspan="1" style="text-align: center;">3</td>
+                            <td colspan="1" style="text-align: center;">4</td>
+                            <td colspan="1" style="text-align: center;">5</td>
+                            <td colspan="1" style="text-align: center;">6</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+    </main>
+</body>
+</html>

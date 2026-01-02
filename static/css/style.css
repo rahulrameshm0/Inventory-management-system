@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #e5e3e3;
+    font-family: sans-serif;
+}
+
+
+/* NAV-BAR */
+
+.nav-bar{
+    display: flex;  
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    margin-top: 2.2rem;
+}
+
+.product{
+    margin: 1rem;
+    border: 3px solid rgb(118, 172, 118);
+    padding: 0.5rem 0.9rem;
+    border-radius: 0.2rem;
+    color: rgb(118, 172, 118);
+    transition: all 0.3s;
+}
+.csv{
+    margin: 1rem;
+    border: 3px solid rgb(118, 172, 118);
+    padding: 0.5rem 0.9rem;
+    border-radius: 0.2rem;
+    color: rgb(250, 250, 250);
+    transition: all 0.3s;
+    background-color: rgb(118, 172, 118);
+}
+
+.product:hover{
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.inventory{
+    text-align: center;
+    color: #fff;
+    background-color: rgb(118, 172, 118);
+    text-transform: uppercase;
+    padding: 0.8rem 1.8rem;
+    border-radius: 0.2rem;
+}
+a{
+    text-decoration: none;
+}
+
+/* Search Section */
+
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.input{
+    background-image: url('search-outline.svg');
+    background-repeat: no-repeat;
+    background-position: 12px;
+    background-size:32px;
+    color: rgb(188, 185, 185);
+    width: 70rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 0.2rem;
+    outline: none;
+    margin-left: 1.5rem;
+}
+
+.input[type="text"]{
+    font-size: 1.5rem;
+    padding-left: 3.2rem;
+}
+
+table{
+    border-collapse: collapse;
+    border: 2px solid rgb(199, 198, 198);
+}
+
+th{
+    background-color: #e1dede;
+    font-weight: 400;
+}
+
+.icons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    font-size: 1.2rem;
+    margin-right: 2rem;
+}
+
+.icons,a{
+    color: rgb(255, 255, 255);
+}
+
+.funnel,
+.download,
+.refresh{
+    background-color: rgb(118, 172, 118);
+    padding: 0.4rem 0.6rem;
+    border-radius: 100%;
+    
+}
