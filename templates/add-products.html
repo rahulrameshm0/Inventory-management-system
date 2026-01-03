@@ -1,11 +1,55 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/products.css' %}">
     <title>Add New products</title>
 </head>
 <body>
-    <h1>Products</h1>
+    <section class="manage-inventory-system">
+        <div>
+            <h1 class="manage-inventory">Manage Inventory</h1>
+
+        </div>
+
+        <div class="add-products">
+            <form action="" method="POST">
+                {% csrf_token %}
+
+                <div class="input-group">
+
+                    <label for="id">Enter product ID</label><br>
+                    <input type="text" name="text" id="id"><br>
+                    
+                    <label for="number">Enter quantity to add</label><br>
+                    <input type="number" name="number" id="number"><br>
+                    
+                    <label for="status">Select Status</label><br>
+                    <select name="status" id="status">
+                        <option value="">Electronics</option>
+                        <option value="">Apparel</option>
+                        <option value="">Beauty</option>
+                        <option value="">Fitness</option>
+                        <option value="">Toys</option>
+                    </select><br>
+                    
+                    <label for="id">Select product type</label><br>
+                    <select name="status" id="status">
+                        <option value="">Electronics</option>
+                        <option value="">Apparel</option>
+                        <option value="">Beauty</option>
+                        <option value="">Fitness</option>
+                        <option value="">Toys</option>
+                    </select><br>
+                    
+                    <label for="id">Enter vendor name</label><br>
+                    <input type="text" name="text" id="id">
+                </div>
+                <button type="submit">Submit</button>
+                </form>
+        </div>
+    </section>
 </body>
 </html>

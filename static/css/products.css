@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    background-color: #e5e3e3;
+}
+
+.manage-inventory-system{
+    text-align: center;
+}
+
+.add-products{
+    width: 42px;             
+    margin: 40px auto;    
+    padding: 25px;            
+    border: 2px solid #cfcfcf; 
+    border-radius: 8px;        
+    background-color: #f4f4f4;
+}
+
+.manage-inventory{
+    margin-top:2.5rem;
+    background-color: rgb(118, 172, 118);
+    font-weight:500;
+    color: #f2eeee;
+    width: 420px;             
+    margin: 40px auto;    
+    padding: 25px;            
+    border: 2px solid #cfcfcf; 
+    border-radius: 8px;        
+}
+
+label{
+    position: relative;
+}
+
+label{
+    position: absolute;
+    left: 34.2rem;
+    margin-top: 1rem;
+}
+
+.add-products,
+ input{
+    margin-top: 1.5rem;
+    width: 50%;
+    padding: 12px 10px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+}
+
+.add-products,
+ select{
+    margin-top: 1.5rem;
+    width: 50%;
+    padding: 12px 10px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+}
+
+button{
+    margin-top: 1.2rem;
+    background-color: rgb(118, 172, 118);
+    color:hsl(0, 0%, 100%);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+}
+
+button:hover{
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
