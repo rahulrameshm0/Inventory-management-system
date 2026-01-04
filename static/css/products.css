@@ -66,7 +66,7 @@ label{
     outline: none;
 }
 
-button{
+.btn{
     margin-top: 1.2rem;
     background-color: rgb(118, 172, 118);
     color:hsl(0, 0%, 100%);
@@ -76,7 +76,41 @@ button{
     transition: all 0.3s;
 }
 
-button:hover{
+.btn:hover{
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     cursor: pointer;
+}
+
+.qty-box{
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #b9b8b8;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 1.5rem;
+}
+
+.qty-btn{
+    width: 44px;
+    height: 44px;                 /* SAME height */
+    display: flex;                /* CENTER symbol */
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    background: #dadada;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.qty-input {
+    width: 16rem;
+    padding: 0rem 1.2rem;
+    text-align: center;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #f4f3f3;
+    line-height: 0.5rem;
+    text-align: center;
 }

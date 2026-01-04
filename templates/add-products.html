@@ -21,11 +21,15 @@
                 <div class="input-group">
 
                     <label for="id">Enter product ID</label><br>
-                    <input type="text" name="text" id="id"><br>
+                    <input type="text" name="id" id="id"><br>
                     
                     <label for="number">Enter quantity to add</label><br>
-                    <input type="number" name="number" id="number"><br>
-                    
+                    <div class="qty-box">
+                        <button class="qty-btn minus">-</button>
+                        <input type="text" name="quantity" value="0" class="qty-input" readonly>
+                        <button class="qty-btn plus">+</button>
+                    </div><br>
+                        
                     <label for="status">Select Status</label><br>
                     <select name="status" id="status">
                         <option value="">In stock</option>
@@ -33,7 +37,7 @@
                     </select><br>
                     
                     <label for="id">Select product type</label><br>
-                    <select name="status" id="status">
+                    <select name="product_type" id="status">
                         <option value="">Electronics</option>
                         <option value="">Apparel</option>
                         <option value="">Beauty</option>
@@ -42,7 +46,7 @@
                     </select><br>
                     
                     <label for="id">Enter vendor name</label><br>
-                    <input type="text" name="text" id="id">
+                    <input type="text" name="name" id="id">
                 </div>
                 <button class="btn" type="submit">Submit</button>
                 </form>

@@ -35,14 +35,15 @@
                      <a href="#" class="refresh"><ion-icon name="refresh-outline"></ion-icon></a>
                  </div>
             </div>
+            
 
             <div class="inventory-table">
+                
                 <table border="1" width="100%">
                     <thead>
                         <tr>
                             <th></th>
                             <th>Product ID</th>
-                            <th>Product Name</th>
                             <th>Type</th>
                             <th>Status</th>
                             <th>Count</th>
@@ -50,17 +51,18 @@
                         </tr>
                     </thead>
                     
+                    {% for product in products %}
                     <tbody>
                         <tr>
                             <th scope="row"><input type="checkbox"></th>
-                            <td colspan="1" style="text-align: center;">1</td>
-                            <td colspan="1" style="text-align: center;">2</td>
-                            <td colspan="1" style="text-align: center;">3</td>
-                            <td colspan="1" style="text-align: center;">4</td>
-                            <td colspan="1" style="text-align: center;">5</td>
-                            <td colspan="1" style="text-align: center;">6</td>
+                            <td colspan="1" style="text-align: center;">{{ product.product_id }}</td>
+                            <td colspan="1" style="text-align: center;">{{ product.product_types }}</td>
+                            <td colspan="1" style="text-align: center;">{{ product.status }}</td>
+                            <td colspan="1" style="text-align: center;">{{ product.quantity }}</td>
+                            <td colspan="1" style="text-align: center;">{{ product.vendor_name }}</td>
                         </tr>
                     </tbody>
+                    {% endfor %}
                 </table>
             </div>
 
