@@ -51,8 +51,8 @@
                         </tr>
                     </thead>
                     
-                    {% for product in products %}
                     <tbody>
+                        {% for product in products %}
                         <tr>
                             <th scope="row"><input type="checkbox"></th>
                             <td colspan="1" style="text-align: center;">{{ product.product_id }}</td>
@@ -61,8 +61,10 @@
                             <td colspan="1" style="text-align: center;">{{ product.quantity }}</td>
                             <td colspan="1" style="text-align: center;">{{ product.vendor_name }}</td>
                         </tr>
+                        {% empty %}
+                        <p style="color:red;">NO PRODUCTS FOUND</p>
+                        {% endfor %}
                     </tbody>
-                    {% endfor %}
                 </table>
             </div>
 
