@@ -37,9 +37,3 @@ def add_new_products(request):
         return redirect('home:dashboard')
     
     return render(request, 'add-products.html')
-
-
-def remove_item(request, id=id):
-    item = Products.objects.get(id=id)
-    item.delete()
-    return redirect('home:dashboard')
