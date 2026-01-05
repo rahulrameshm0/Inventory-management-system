@@ -48,6 +48,8 @@
                             <th>Status</th>
                             <th>Count</th>
                             <th>Vendor</th>
+                            <th>Delete</th>
+
                         </tr>
                     </thead>
                     
@@ -60,9 +62,10 @@
                             <td colspan="1" style="text-align: center;">{{ product.status }}</td>
                             <td colspan="1" style="text-align: center;">{{ product.quantity }}</td>
                             <td colspan="1" style="text-align: center;">{{ product.vendor_name }}</td>
+                            <td colspan="1" style="text-align: center;"><a href="{% url 'delete' product.id %}">Delete</a></td>
                         </tr>
                         {% empty %}
-                        <p style="color:red;">NO PRODUCTS FOUND</p>
+                        <p style="color:red; text-align: center;">NO PRODUCTS FOUND</p>
                         {% endfor %}
                     </tbody>
                 </table>

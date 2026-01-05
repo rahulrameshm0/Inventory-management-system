@@ -32,17 +32,17 @@
                         
                     <label for="status">Select Status</label><br>
                     <select name="status" id="status">
-                        <option value="">In stock</option>
-                        <option value="">Out of stock</option>
+                        <option value="in_stock">In stock</option>
+                        <option value="out_of_stock">Out of stock</option>
                     </select><br>
                     
                     <label for="id">Select product type</label><br>
                     <select name="product_type" id="product_type">
-                        <option value="">Electronics</option>
-                        <option value="">Apparel</option>
-                        <option value="">Beauty</option>
-                        <option value="">Fitness</option>
-                        <option value="">Toys</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="grocery">Grocery</option>
+                        <option value="fitness">Fitness</option>
+                        <option value="toys">Toys</option>
                     </select><br>
                     
                     <label for="id">Enter vendor name</label><br>
@@ -51,6 +51,13 @@
                 <button class="btn" type="submit">Submit</button>
                 </form>
         </div>
+
+        {% for message in messages %}
+            {% if message %}
+              {{ message }}
+            {% endif %}
+          
+        {% endfor %}
     </section>
 
     <script src="{% static 'js/script.js' %}" defer></script>

@@ -3,14 +3,16 @@ from django.db import models
 # Create your models here.
 class Products(models.Model):
     PRODUCT_STATUS = [
-        ('IN STOCK', 'In stock'),
-        ('OUT OF STOCK', 'Out of stock'),
+        ('in_stock', 'In Stock'),
+        ('out_of_stock', 'OUT of Stock'),
     ]
 
     PRODUCT_TYPES = [
         ('electronics', 'Electronics'),
         ('grocery', 'Grocery'),
         ('clothing', 'Clothing'),
+        ('fitness', 'Fitness'),
+        ('toys', 'Toys')
     ]
     product_id = models.IntegerField(unique=True)
     quantity = models.IntegerField()
@@ -18,4 +20,6 @@ class Products(models.Model):
     product_types = models.CharField(max_length=20, choices=PRODUCT_TYPES)
     vendor_name = models.CharField(max_length=150)
 
+    def __str__(self):
+        return str(self.product_id)
 
