@@ -21,7 +21,7 @@
                 <div class="input-group">
 
                     <label for="id">Enter product ID</label><br>
-                    <input type="text" name="id" id="id"><br>
+                    <input type="number" name="product_id" id="product_id" required><br>
                     
                     <label for="number">Enter quantity to add</label><br>
                     <div class="qty-box">
@@ -52,12 +52,13 @@
                 </form>
         </div>
 
-        {% for message in messages %}
-            {% if message %}
-              {{ message }}
-            {% endif %}
-          
-        {% endfor %}
+        {% if message %}
+            {% for message in messages %}
+                <div class="alert {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
     </section>
 
     <script src="{% static 'js/script.js' %}" defer></script>
