@@ -18,7 +18,7 @@ class Products(models.Model):
     quantity = models.IntegerField()
     status = models.CharField(max_length=20,choices=PRODUCT_STATUS)
     product_types = models.CharField(max_length=20, choices=PRODUCT_TYPES)
-    vendor_name = models.CharField(max_length=150)
+    vendor_name = models.CharField(max_length=150, blank=False)
 
     def __str__(self):
         return str(self.product_id)

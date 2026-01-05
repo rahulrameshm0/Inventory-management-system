@@ -11,7 +11,7 @@ def add_new_products(request):
         quantity = request.POST.get('quantity')
         product_types = request.POST.get('product_type')
         status = request.POST.get('status')
-        vendor_name = request.POST.get('name')
+        vendor_name = request.POST.get('vendor_name')
 
         if Products.objects.filter(product_id=product_id).exists():
             messages.error(request, 'The id should be unique')
