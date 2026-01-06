@@ -17,10 +17,13 @@
     <main>
         <nav class="nav-bar">
             <p class="inventory">Inventory dsaboard</p>
+            {% if user.is_authenticated %}
             <div class="add-item">
-                <a class="product" href="{% url 'add_products' %}">Add new product</a>
+                <a class="products" href="{% url 'add_products' %}">Add new product</a>
                 <a class="csv" href="#">Export as CSV</a>
+                <a class="product" id="log-out" href="{% url 'logout' %}">Logout</a>
             </div>
+            {% endif %}
         </nav>
 
         <section>

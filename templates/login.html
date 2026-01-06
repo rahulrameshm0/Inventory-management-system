@@ -17,7 +17,7 @@
             <input type="password" name="password" id="password" required placeholder="Password"><br>
             <button type="submit">Login</button>
         </form>
-          <p>Do you have an account? <a href="{% url 'signup' %}">Create Account</a></p>
+          <p style="margin-top: 0.5rem;">Do you have an account?<a style="text-decoration: none; color: rgb(55, 55, 236);" href="{% url 'signup' %}">Create Account</a></p>
 
           {% if messages %}
           {% for message in messages %}

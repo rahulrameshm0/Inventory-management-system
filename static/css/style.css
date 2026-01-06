@@ -20,13 +20,19 @@ body{
     margin-top: 2.2rem;
 }
 
-.product{
-    margin: 1rem;
+.products{
     border: 3px solid rgb(118, 172, 118);
+    color: rgb(118, 172, 118);
+    padding: 0.5rem 0.9rem;
+    transition: all 0.3s;
+}
+
+#log-out{
+    background-color: red;
+    border: 3px solid rgb(238, 42, 42);
     padding: 0.5rem 0.9rem;
     border-radius: 0.2rem;
-    color: rgb(118, 172, 118);
-    transition: all 0.3s;
+    color: #fff;
 }
 .csv{
     margin: 1rem;

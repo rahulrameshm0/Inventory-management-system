@@ -3,8 +3,11 @@ from . models import Products
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.db import IntegrityError
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import never_cache
 
-# Create your views here.
+@never_cache
+@login_required(login_url='login')
 def add_new_products(request):
     if request.method == 'POST':
         product_id = request.POST.get('product_id')
