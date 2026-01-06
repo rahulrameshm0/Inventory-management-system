@@ -11,14 +11,15 @@ body{
 
 h1{
     text-align: center;
+    margin-top: 1.6rem;
 }
 
 .login-section{
     text-align: center;
     border: 3px solid rgb(164, 164, 164);
-    width: 400px;
-    margin: 200px auto;
-    padding: 8rem 4rem;
+    width: 450px;
+    margin: 240px auto;
+    padding: 3.4rem 4rem;
     border-radius: 0.5rem;
 
 }

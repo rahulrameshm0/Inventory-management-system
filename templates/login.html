@@ -5,19 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css">
 </head>
 <body>
     <h1>Inventory Management System</h1>
     <section class="login-section">
-        <h2>Login   </h2>
+        <h2>Login</h2>
         <form action="" method="POST">
             {% csrf_token %}
             <input type="text" name="username" id="username" required placeholder="Username"><br>
             <input type="password" name="password" id="password" required placeholder="Password"><br>
             <button type="submit">Login</button>
         </form>
-          <p style="margin-top: 0.5rem;">Do you have an account?<a style="text-decoration: none; color: rgb(55, 55, 236);" href="{% url 'signup' %}">Create Account</a></p>
+          <p style="margin-top: 0.5rem;">Do you have an account? <a style="text-decoration: none; color: rgb(55, 55, 236);" href="{% url 'signup' %}">Create Account</a></p>
 
           {% if messages %}
           {% for message in messages %}
