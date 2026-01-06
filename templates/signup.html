@@ -4,24 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>Signup</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
 </head>
 <body>
-    <h1>Inventory Management System</h1>
     <section class="login-section">
-        <h2>Login   </h2>
+        <h2>Signup</h2>
         <form action="" method="POST">
             {% csrf_token %}
             <input type="text" name="username" id="username" required placeholder="Username"><br>
+            <input type="email" name="email" id="email" required placeholder="Email"><br>
             <input type="password" name="password" id="password" required placeholder="Password"><br>
-            <button type="submit">Login</button>
+            <input type="password" name="confirm-password" id="confirm-password" required placeholder="Confirm Password"><br>
+            <button type="submit">Signup</button>
         </form>
-          <p>Do you have an account? <a href="{% url 'signup' %}">Create Account</a></p>
-
           {% if messages %}
           {% for message in messages %}
-            <h3 style="color: rgb(237, 75, 75); margin: 0.5rem;"> {{ message }} </h3>  
+            <h3 class="alerting" style="color: rgb(237, 75, 75); margin: 0.5rem;"> {{ message }} </h3>  
           {% endfor %}
         {% endif %}
     </section>

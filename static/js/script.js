@@ -2,6 +2,7 @@ const button = document.querySelector('.btn');
 const subtract = document.querySelector('.minus');
 const add = document.querySelector('.plus');
 const input = document.querySelector('.qty-input');
+const alerting = document.querySelector('.alerting')
 
 button.addEventListener('click', () => {
     button.textContent = "Loading..."
@@ -19,3 +20,4 @@ subtract.addEventListener('click', (e) => {
         input.value = parseInt(input.value) - 1;
     }
 });
+
