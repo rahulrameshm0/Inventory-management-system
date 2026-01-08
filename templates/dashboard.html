@@ -10,7 +10,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <!-- Style -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1">
     <title>Inventory Management</title>
 </head>
 <body>
@@ -19,7 +19,7 @@
             <p class="inventory">Inventory dsaboard</p>
             {% if user.is_authenticated %}
             <div class="add-item">
-                <a class="products" href="{% url 'add_products' %}">Add new product</a>
+                <button class="btn-1" data-url="{% url 'add_products' %}">Add new product</button>
                 <a class="csv" href="#">Export as CSV</a>
                 <a class="product" id="log-out" href="{% url 'logout' %}">Logout</a>
             </div>
@@ -76,5 +76,6 @@
 
         </section>
     </main>
+    <script src="{% static 'js/script.js' %}" defer></script>
 </body>
 </html>

@@ -20,7 +20,7 @@ body{
     margin-top: 2.2rem;
 }
 
-.products{
+.btn-1{
     border: 3px solid rgb(118, 172, 118);
     color: rgb(118, 172, 118);
     padding: 0.5rem 0.9rem;
@@ -44,7 +44,7 @@ body{
     background-color: rgb(118, 172, 118);
 }
 
-.product:hover{
+.btn-1:hover{
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -58,6 +58,13 @@ body{
 }
 a{
     text-decoration: none;
+}
+
+.btn-1{
+    border: none;
+    padding: 0.8rem 1.8rem;
+    color: #fff;
+    background-color: rgb(118, 172, 118);
 }
 
 /* Search Section */
