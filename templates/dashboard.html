@@ -20,7 +20,7 @@
             {% if user.is_authenticated %}
             <div class="input-container">              
                 <button type="button" class="btn-1" data-url="#" onclick="openPopup()">Add new product</button>
-                <form action="" method="POST">
+                <form id="product-form" action="{% url 'home:dashboard' %}" method="POST">
                 {% csrf_token %}
                 <div class="input-group popup" id="popup">
                     <label for="id">Enter product ID</label>
@@ -28,15 +28,15 @@
                     
                     <label for="number">Enter quantity to add</label>
                     <div class="qty-box">
-                        <button class="qty-btn minus">-</button>
-                        <input type="text" name="quantity" value="0" class="qty-input" readonly>
-                        <button class="qty-btn plus">+</button>
+                        <button type="button" class="qty-btn minus">-</button>
+                        <input type="text" name="quantity" id="quantity" value="0" class="qty-input">
+                        <button type="button" class="qty-btn plus">+</button>
                     </div>
                         
                     <label for="status">Select Status</label>
                     <select name="status" id="status">
-                        <option value="in_stock" {% if  edits.status == 'in_stock' %}selected{% endif %}>In stock</option>
-                        <option value="out_of_stock" {% if  edits.status == 'out_of_stock' %}selected{% endif %}>Out of stock</option>
+                        <option value="in_stock" {% if edits.status == 'in_stock' %}selected{% endif %}>In stock</option>
+                        <option value="out_of_stock" {% if edits.status == 'out_of_stock' %}selected{% endif %}>Out of stock</option>
                     </select>
                     
                     <label for="product_type">Select product type</label>
@@ -50,7 +50,7 @@
                     
                     <label for="vendor_name">Enter vendor name</label>
                     <input type="text" name="vendor_name" id="vendor_name"  value="{{ edits.vendor_name }}">
-                    <button class="btn" type="submit" onclick="closePopup()">Submit</button>
+                    <button class="btn" type="submit">Submit</button>
                 </div>
                 </form>  
                 <a class="csv" href="#">Export as CSV</a>
@@ -98,7 +98,17 @@
                             <td colspan="1" style="text-align: center;">{{ product.status }}</td>
                             <td colspan="1" style="text-align: center;">{{ product.quantity }}</td>
                             <td colspan="1" style="text-align: center;">{{ product.vendor_name }}</td>
-                            <td colspan="1" style="text-align: center;"><a href="{% url 'home:edit' product.id %}" class="edit">Edit</a><a class="delete" href="{% url 'home:delete' product.id %}">Delete</a></td>
+                            <td colspan="1" style="text-align: center;">
+                                <button type="button" class="edit" data-id="{{ product.id }}" onclick="openPopup(this)"
+                                    data-id="{{ product.id }}"
+                                    data-qty="{{ product.quantity }}"
+                                    data-status="{{ product.status }}"
+                                    data-type="{{ product.product_types }}"
+                                    data-vendor_name="{{ product.vendor_name }}">
+                                    Edit
+                                </button>
+                                <a class="delete" href="{% url 'home:delete' product.id %}">Delete</a>
+                            </td>
                         </tr>
                         {% empty %}
                         <p style="color:red; text-align: center;">NO PRODUCTS FOUND</p>

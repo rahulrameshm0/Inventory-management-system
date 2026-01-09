@@ -1,6 +1,9 @@
 from django.db import models
 
 # Create your models here.
+from django.db import models
+
+# Create your models here.
 class Products(models.Model):
     PRODUCT_STATUS = [
         ('in_stock', 'In Stock'),
@@ -22,4 +25,3 @@ class Products(models.Model):
 
     def __str__(self):
         return str(self.product_id)
-
