@@ -5,6 +5,10 @@ const input = document.querySelector('.qty-input');
 const alerting = document.querySelector('.alerting');
 const dashboardButton = document.querySelector('.btn-1');
 
+let popup = document.getElementById('popup');
+let closepopup = document.getElementById('closePopup');
+
+
 if(button){
     button.addEventListener('click', (e) => {
         e.preventDefault()
@@ -30,10 +34,18 @@ if (subtract && input){
 
 }
 
-if (dashboardButton){
-    dashboardButton.addEventListener('click',(e) => {
-        e.preventDefault()
-        window.location.href = dashboardButton.dataset.url;
-        // console.log('click')
-});
+// if (dashboardButton){
+//     dashboardButton.addEventListener('click',(e) => {
+//         e.preventDefault()
+//         window.location.href = dashboardButton.dataset.url;
+//         // console.log('click')
+// });
+// }
+
+function openPopup(){
+    popup.classList.add('open-popup');
+}
+
+function closePopup(){
+    closepopup.classList.remove('open-popup');
 }

@@ -96,6 +96,30 @@ a{
     padding-left: 3.2rem;
 }
 
+.input-group {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 14px;
+}
+.input-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-group input{
+    height: 2.8rem;
+    outline: none;
+}
+
+select{
+    outline: none;
+    width: 100%;
+    height: 2.8rem;
+}
+
 table{
     border-collapse: collapse;
     border: 2px solid rgb(199, 198, 198);
@@ -143,4 +167,154 @@ td{
     padding: 0.4rem 0.6rem;
     border-radius: 100%;
     
+}
+
+/* products-style */
+.popup{
+    /* visibility: hidden;
+    background-color: rgb(225, 228, 228);
+    padding: 0.5rem 0.8rem;
+    position: absolute;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    top: 0;
+    left: 50%;
+    transition: transform 0.4s, top 0.4s; */
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 420px;
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    /* z-index: 1000; */
+    visibility: hidden;
+    /* opacity: 0; */
+    transition: all 0.35s ease
+}
+
+.open-popup{
+    visibility: visible;
+    top: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.manage-inventory-system{
+    text-align: center;
+}
+
+/* .add-products{
+    width: 42px;             
+    margin: 40px auto;    
+    padding: 25px;            
+    border: 2px solid #cfcfcf; 
+    border-radius: 8px;        
+    background-color: #f4f4f4;
+} */
+
+.manage-inventory{
+    margin-top:2.5rem;
+    background-color: rgb(118, 172, 118);
+    font-weight:500;
+    color: #f2eeee;
+    width: 420px;             
+    margin: 40px auto;    
+    padding: 25px;            
+    border: 2px solid #cfcfcf; 
+    border-radius: 8px;        
+}
+
+/* label{
+    position: relative;
+}
+
+label{
+    position: absolute;
+    left: 34.2rem;
+    margin-top: 1rem;
+} */
+
+.add-products input {
+    margin-top: 1.5rem;
+    width: 50%;
+    padding: 12px 10px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+}
+
+.add-products select {
+    margin-top: 1.5rem;
+    width: 50%;
+    padding: 12px 10px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+}
+
+.btn{
+    margin-top: 1.2rem;
+    background-color: rgb(118, 172, 118);
+    color:hsl(0, 0%, 100%);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+}
+
+.btn:hover{
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+
+.qty-btn{
+    width: 44px;
+    height: 44px;                 /* SAME height */
+    display: flex;                /* CENTER symbol */
+    align-items: center;
+    justify-content: center;
+    
+    border: none;
+    background: #dadada;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.qty-box {
+    display: grid;
+    grid-template-columns: 42px 1fr 42px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+
+/* Qty buttons */
+.qty-btn {
+    background: #f0f0f0;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Qty input */
+.qty-input {
+    border: none;
+    text-align: center;
+    font-size: 15px;
+    background: #fff;
+}
+
+
+
+
+.input-container{
+    display: flex;
+    align-items: center;
 }

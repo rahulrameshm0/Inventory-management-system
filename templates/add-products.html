@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/products.css' %}">
+    <link rel="stylesheet" href="{% static 'css/products.css' %}?v=1">
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -24,8 +24,7 @@
             <form action="" method="POST">
                 {% csrf_token %}
 
-                <div class="input-group">
-
+                <div class="input-group popup">
                     <label for="id">Enter product ID</label><br>
                     <input type="number" name="product_id" value="{{edits.product_id}}" id="product_id" required><br>
                     
@@ -52,9 +51,9 @@
                     </select><br>
                     
                     <label for="vendor_name">Enter vendor name</label><br>
-                    <input type="text" name="vendor_name" id="vendor_name"  value="{{ edits.vendor_name }}">
+                    <input type="text" name="vendor_name" id="vendor_name"  value="{{ edits.vendor_name }}"><br>
+                    <button class="btn" type="submit" onclick="closePopup()">Submit</button>
                 </div>
-                <button class="btn" type="submit">Submit</button>
                 </form>
         </div>
 

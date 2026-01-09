@@ -1,4 +1,4 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -9,18 +9,36 @@ body{
     background-color: #e5e3e3;
 }
 
+.popup{
+    visibility: hidden;
+    background-color: lightcyan;
+    padding: 0.5rem 0.8rem;
+    position: absolute;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    top: 0;
+    left: 50%;
+    transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
 .manage-inventory-system{
     text-align: center;
 }
 
-.add-products{
+ .add-products{
     width: 42px;             
     margin: 40px auto;    
     padding: 25px;            
     border: 2px solid #cfcfcf; 
     border-radius: 8px;        
     background-color: #f4f4f4;
-}
+} 
 
 .manage-inventory{
     margin-top:2.5rem;
@@ -34,7 +52,7 @@ body{
     border-radius: 8px;        
 }
 
-label{
+/* label{
     position: relative;
 }
 
@@ -42,7 +60,7 @@ label{
     position: absolute;
     left: 34.2rem;
     margin-top: 1rem;
-}
+} 
 
 .add-products,
  input{
@@ -92,8 +110,8 @@ label{
 
 .qty-btn{
     width: 44px;
-    height: 44px;                 /* SAME height */
-    display: flex;                /* CENTER symbol */
+    height: 44px;                 
+    display: flex;              
     align-items: center;
     justify-content: center;
 
@@ -115,3 +133,4 @@ label{
     text-align: center;
 }
 
+*/ 
