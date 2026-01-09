@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import never_cache
 from django.contrib import messages
 from django.db import IntegrityError
+from django.contrib.auth.models import User
 
 @never_cache
 @login_required(login_url='login')
@@ -14,7 +15,6 @@ def dashboard(request):
         product_types = request.POST.get('product_type')
         status = request.POST.get('status')
         vendor_name = request.POST.get('vendor_name')
-
         if Products.objects.filter(product_id=product_id).exists():
             messages.error(request, 'The id should be unique')
             return redirect('home:dashboard')
