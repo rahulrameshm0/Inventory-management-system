@@ -5,6 +5,7 @@ from django.views.decorators.cache import never_cache
 from django.contrib import messages
 from django.db import IntegrityError
 from django.contrib.auth.models import User
+import dashboard
 
 @never_cache
 @login_required(login_url='login')
@@ -21,6 +22,7 @@ def dashboard(request):
         
         try:  
             Products.objects.create(
+                user = request.user,
                 product_id = product_id,
                 quantity = quantity,
                 product_types = product_types,
@@ -34,7 +36,7 @@ def dashboard(request):
 
         return redirect('home:dashboard')
     
-    products = Products.objects.all().order_by('product_id')
+    products = Products.objects.filter(user=request.user).order_by('product_id')
     return render(request, 'dashboard.html',{'products': products})
     # return render(request, 'add-products.html')
 
