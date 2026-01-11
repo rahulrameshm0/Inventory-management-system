@@ -4,7 +4,7 @@ const add = document.querySelector('.plus');
 const input = document.querySelector('.qty-input');
 const alerting = document.querySelector('.alerting');
 const dashboardButton = document.querySelector('.btn-1');
-const form = document.querySelector('product-form');
+const form = document.getElementById('product-form');
 
 let popup = document.getElementById('popup');
 let closepopup = document.getElementById('closePopup');
@@ -40,19 +40,24 @@ if (subtract && input){
 // });
 // }
 
-function openPopup(btn=null){
+
+function openPopup(btn = null) {
     popup.classList.add('open-popup');
 
-    if (btn){
-        // form.action = `/edit/${btn.dataset.id}/`
-
-        document.getElementById('product_id').value = btn.dataset.id;
-        document.getElementById('quantity').value = btn.dataset.qty;
-        document.getElementById('status').value = btn.dataset.status;
-        document.getElementById('product_type').value = btn.dataset.type;
-        document.getElementById('vendor_name').value = btn.dataset.vendor_name;
+    // ADD MODE
+    if (!btn) {
+        form.reset();
+        document.getElementById('quantity').value = 0;
+        return;
     }
-};
+
+    // EDIT MODE
+    document.getElementById('product_id').value = btn.dataset.product_id;
+    document.getElementById('quantity').value = btn.dataset.qty;
+    document.getElementById('status').value = btn.dataset.status;
+    document.getElementById('product_type').value = btn.dataset.type;
+    document.getElementById('vendor_name').value = btn.dataset.vendor_name;
+}
 
 function closePopup(){   
     popup.classList.remove('open-popup');

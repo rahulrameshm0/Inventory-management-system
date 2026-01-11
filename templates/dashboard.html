@@ -20,16 +20,18 @@
             {% if user.is_authenticated %}
             <div class="input-container">              
                 <button type="button" class="btn-1" data-url="#" onclick="openPopup()">Add new product</button>
+                
                 <form id="product-form" action="{% url 'home:dashboard' %}" method="POST">
-                {% csrf_token %}
+                        {% csrf_token %}
                 <div class="input-group popup" id="popup">
+
                     <label for="id">Enter product ID</label>
-                    <input type="number" name="product_id" value="{{edits.product_id}}" id="product_id" required>
-                    
+                    <input type="number" name="product_id" id="product_id" required>
+    
                     <label for="number">Enter quantity to add</label>
                     <div class="qty-box">
                         <button type="button" class="qty-btn minus">-</button>
-                        <input type="text" name="quantity" id="quantity" value="0" class="qty-input">
+                        <input type="text" name="quantity" id="quantity" value="0" class="qty-input" readonly>
                         <button type="button" class="qty-btn plus">+</button>
                     </div>
                         
@@ -52,10 +54,11 @@
                     <input type="text" name="vendor_name" id="vendor_name"  value="{{ edits.vendor_name }}">
                     <button class="btn" type="submit">Submit</button>
                 </div>
-                </form>  
+            </div>
+        </form>  
+    </div>
                 <a class="csv" href="#">Export as CSV</a>
                 <a class="product" id="log-out" href="{% url 'logout' %}">Logout</a>
-            </div>
             {% endif %}
         </nav>
 
@@ -98,8 +101,8 @@
                             <td colspan="1" style="text-align: center;">{{ product.quantity }}</td>
                             <td colspan="1" style="text-align: center;">{{ product.vendor_name }}</td>
                             <td colspan="1" style="text-align: center;">
-                                <button type="button" class="edit" data-id="{{ product.id }}" onclick="openPopup(this)"
-                                    data-id="{{ product.id }}"
+                                <button type="button" class="edit" data-id="{{ product.product_id }}" onclick="openPopup(this)"
+                                    data-product_id="{{ product.product_id }}"
                                     data-qty="{{ product.quantity }}"
                                     data-status="{{ product.status }}"
                                     data-type="{{ product.product_types }}"
@@ -117,16 +120,6 @@
             </div>
 
         </section>
-
-    <section class="manage-inventory-system">
-        {% if message %}
-            {% for message in messages %}
-                <div class="alert {{ message.tags }}">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endif %}
-    </section>
     </main>
     <script src="{% static 'js/script.js' %}" defer></script>
 </body>

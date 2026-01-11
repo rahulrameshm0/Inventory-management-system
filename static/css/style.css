@@ -101,6 +101,7 @@ a{
     grid-template-columns: 1fr;
     row-gap: 14px;
 }
+
 .input-group label {
     font-size: 13px;
     font-weight: 600;
@@ -139,6 +140,7 @@ td{
     border: 1px solid blue;
     background-color: rgb(35, 35, 235);
 }
+
 .delete{
     color: rgb(255, 255, 255);
     border: 1px solid red;
@@ -309,9 +311,6 @@ label{
     font-size: 15px;
     background: #fff;
 }
-
-
-
 
 .input-container{
     display: flex;

@@ -19,7 +19,7 @@ class Products(models.Model):
     ]
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
     product_id = models.IntegerField(unique=True)
-    quantity = models.IntegerField()
+    quantity = models.CharField(max_length=150)
     status = models.CharField(max_length=20,choices=PRODUCT_STATUS)
     product_types = models.CharField(max_length=20, choices=PRODUCT_TYPES)
     vendor_name = models.CharField(max_length=150, blank=False)

@@ -16,23 +16,27 @@ def dashboard(request):
         product_types = request.POST.get('product_type')
         status = request.POST.get('status')
         vendor_name = request.POST.get('vendor_name')
+
+        if not product_id:
+            messages.error(request, "Product ID is required")
+            return redirect('home:dashboard')
+
         if Products.objects.filter(product_id=product_id).exists():
             messages.error(request, 'The id should be unique')
             return redirect('home:dashboard')
         
-        try:  
-            Products.objects.create(
-                product_id = product_id,
-                quantity = quantity,
-                product_types = product_types,
-                status = status,
-                vendor_name = vendor_name
-            )
         
-        except IntegrityError:
-            messages.error(request, "Product ID should be unique")
-            return redirect('home:dashboard')
-
+        Products.objects.create(
+            user = request.user,
+            product_id = product_id,
+            quantity = quantity,
+            product_types = product_types,
+            status = status,
+            vendor_name = vendor_name
+        )
+        
+     
+        messages.error(request, "Product ID should be unique")
         return redirect('home:dashboard')
     
     products = Products.objects.all().order_by('product_id')
