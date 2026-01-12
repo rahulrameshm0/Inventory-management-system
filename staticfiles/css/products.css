@@ -1,0 +1,136 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    background-color: #e5e3e3;
+}
+
+.popup{
+    visibility: hidden;
+    background-color: lightcyan;
+    padding: 0.5rem 0.8rem;
+    position: absolute;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    top: 0;
+    left: 50%;
+    transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.manage-inventory-system{
+    text-align: center;
+}
+
+ .add-products{
+    width: 42px;             
+    margin: 40px auto;    
+    padding: 25px;            
+    border: 2px solid #cfcfcf; 
+    border-radius: 8px;        
+    background-color: #f4f4f4;
+} 
+
+.manage-inventory{
+    margin-top:2.5rem;
+    background-color: rgb(118, 172, 118);
+    font-weight:500;
+    color: #f2eeee;
+    width: 420px;             
+    margin: 40px auto;    
+    padding: 25px;            
+    border: 2px solid #cfcfcf; 
+    border-radius: 8px;        
+}
+
+/* label{
+    position: relative;
+}
+
+label{
+    position: absolute;
+    left: 34.2rem;
+    margin-top: 1rem;
+} 
+
+.add-products,
+ input{
+    margin-top: 1.5rem;
+    width: 50%;
+    padding: 12px 10px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+}
+
+.add-products,
+ select{
+    margin-top: 1.5rem;
+    width: 50%;
+    padding: 12px 10px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+}
+
+.btn{
+    margin-top: 1.2rem;
+    background-color: rgb(118, 172, 118);
+    color:hsl(0, 0%, 100%);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+}
+
+.btn:hover{
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.qty-box{
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #b9b8b8;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 1.5rem;
+}
+
+.qty-btn{
+    width: 44px;
+    height: 44px;                 
+    display: flex;              
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    background: #dadada;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.qty-input {
+    width: 16rem;
+    padding: 0rem 1.2rem;
+    text-align: center;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #f4f3f3;
+    line-height: 0.5rem;
+    text-align: center;
+}
+
+*/ 
