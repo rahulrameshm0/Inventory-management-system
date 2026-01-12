@@ -14,7 +14,6 @@ from pathlib import Path
 import os
 
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,11 +26,6 @@ SECRET_KEY = 'django-insecure-eu1z*zyel%(7b@6&_#(q2j)-v5$%rw=d+p)h!t01m!t9$@!z&8
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-CSRF_TRUSTED_ORIGINS = [
-    "https://*.up.railway.app",
-]
-
 
 ALLOWED_HOSTS = ['*']
 
@@ -85,25 +79,10 @@ WSGI_APPLICATION = 'inventory_system.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-# DATABASES =     {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'railway',
-#         'USER': 'postgres',
-#         'PASSWORD': 'SRhDgPoANxxqHyKZVmeXhjlIsNEJeiMe',
-#         'HOST': 'postgres.railway.internal',
-#         'PORT': '5432',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'SRhDgPoANxxqHyKZVmeXhjlIsNEJeiMe',
-        'HOST': 'postgres.railway.internal',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
