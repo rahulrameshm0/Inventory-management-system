@@ -27,12 +27,13 @@ SECRET_KEY = 'django-insecure-eu1z*zyel%(7b@6&_#(q2j)-v5$%rw=d+p)h!t01m!t9$@!z&8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.SecurityMiddleware',
     'django.contrib.sessions.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -123,6 +125,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # MEDIA_URL = '/media'
 
 
