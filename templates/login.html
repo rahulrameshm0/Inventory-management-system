@@ -8,22 +8,31 @@
     <link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css">
 </head>
 <body>
-    <h1>Inventory Management System</h1>
-    <section class="login-section">
-        <h2>Login</h2>
-        <form action="" method="POST">
+  <section class="login-section">
+    <div class="flex-item">
+      <div class="img-section">
+        <img class="img" src="{% static 'images/inventory-1.png' %}" alt="inventory-img">
+      </div>
+      
+      <div class="login-page">
+          <h1>RR Inventory</h1>
+          <p class="p">The value of your company</p>
+
+          <form action="" method="POST">
             {% csrf_token %}
             <input type="text" name="username" id="username" required placeholder="Username"><br>
             <input type="password" name="password" id="password" required placeholder="Password"><br>
             <button type="submit">Login</button>
-        </form>
-          <p style="margin-top: 0.5rem;">Do you have an account? <a style="text-decoration: none; color: rgb(55, 55, 236);" href="{% url 'signup' %}">Create Account</a></p>
-
+          </form>
+          <p style="margin-top: 0.5rem; color: #dadada;" class="create-account">Don't have an account? <a style="text-decoration: none; color: rgb(149, 67, 199);" href="{% url 'signup' %}">Create Account</a></p>
+          
           {% if messages %}
           {% for message in messages %}
-            <h3 style="color: rgb(237, 75, 75); margin: 0.5rem;"> {{ message }} </h3>  
+          <h3 style="color: rgb(237, 75, 75); margin: 0.5rem;"> {{ message }} </h3>  
           {% endfor %}
-        {% endif %}
-    </section>
-</body>
-</html>
+          {% endif %}
+        </div>
+      </div>
+      </section>
+    </body>
+    </html>

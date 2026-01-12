@@ -136,16 +136,20 @@ td{
 }
 
 .edit{
-    color: rgb(255, 255, 255);
-    border: 1px solid blue;
-    background-color: rgb(35, 35, 235);
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: blue;
 }
 
 .delete{
-    color: rgb(255, 255, 255);
-    border: 1px solid red;
-    background-color: rgb(210, 50, 50);
-    padding: 0 1rem;
+    cursor: pointer;
+    color: red;
+    margin: 0.8rem;
+}
+
+.edit-dlt-btn{
+    font-size: 1.4rem;
 }
 
 .icons{

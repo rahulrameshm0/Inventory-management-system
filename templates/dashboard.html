@@ -10,7 +10,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <!-- Style -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Inventory Management</title>
 </head>
 <body>
@@ -107,9 +107,9 @@
                                     data-status="{{ product.status }}"
                                     data-type="{{ product.product_types }}"
                                     data-vendor_name="{{ product.vendor_name }}">
-                                    Edit
+                                    <ion-icon class="edit-dlt-btn" name="create-outline"></ion-icon>
                                 </button>
-                                <a class="delete" href="{% url 'home:delete' product.id %}">Delete</a>
+                                <a class="delete" href="{% url 'home:delete' product.id %}"><ion-icon class="edit-dlt-btn" name="trash-outline"></ion-icon></a>
                             </td>
                         </tr>
                         {% empty %}
