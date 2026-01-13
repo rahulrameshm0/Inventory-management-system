@@ -1,10 +1,11 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- IONIC ICON -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -13,155 +14,153 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1">
     <title>Inventory Management</title>
 </head>
+
 <body>
     <main>
         <nav class="nav-bar">
             <p class="inventory">Inventory dsaboard</p>
             {% if user.is_authenticated %}
-            <div class="input-container">              
+            <div class="input-container">
                 <button type="button" class="btn-1" data-url="#" onclick="openPopup()">Add new product</button>
-                
-                <form id="product-form" action="{% url 'home:dashboard' %}" method="POST">
-                        {% csrf_token %}
-                <div class="input-group popup" id="popup">
 
-                    <label for="id">Enter product ID</label>
-                    <input type="number" name="product_id" id="product_id" required>
-    
-                    <label for="number">Enter quantity to add</label>
-                    <div class="qty-box">
-                        <button type="button" class="qty-btn minus">-</button>
-                        <input type="text" name="quantity" id="quantity" value="0" class="qty-input">
-                        <button type="button" class="qty-btn plus">+</button>
+                <form id="product-form" action="{% url 'home:dashboard' %}" method="POST">
+                    {% csrf_token %}
+                        <div class="input-group popup" id="popup">
+
+                            <label for="id">Enter product ID</label>
+                            <input type="number" name="product_id" id="product_id" required>
+
+                            <label for="number">Enter quantity to add</label>
+                            <div class="qty-box">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="text" name="quantity" id="quantity" value="0" class="qty-input">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+
+                            <label for="status">Select Status</label>
+                            <select name="status" id="status">
+                                <option value="In stock" {% if edits.status == 'in_stock' %}selected{% endif %}>In stock</option>
+                                <option value="Out of stock" {% if edits.status == 'out_of_stock' %}selected{% endif %}>Out of stock</option>
+                            </select>
+
+                            <label for="product_type">Select product type</label>
+                            <select name="product_type" id="product_type">
+                                <option value="Electronics" {% if edits.product_types == 'electronics' %}selected{% endif %}>Electronics</option>
+                                <option value="Clothing" {% if edits.product_types == 'clothing' %}selected{% endif %}>Clothing</option>
+                                <option value="Grocery" {% if edits.product_types == 'grocery' %}selected{% endif %}>Grocery</option>
+                                <option value="Fitness" {% if edits.product_types == 'fitness' %}selected{% endif %}>Fitness</option>
+                                <option value="Toys" {% if edits.product_types == 'toys' %}selected{% endif %}>Toys</option>
+                            </select>
+
+                            <label for="vendor_name">Enter vendor name</label>
+                            <input type="text" name="vendor_name" id="vendor_name" value="{{ edits.vendor_name }}">
+
+                            <div class="popup-btn">
+                                <button class="btn" type="submit">Submit</button>
+                                <button class="delete-btn" name="action" type="submit" value="delete">Delete</button>
+                            </div>
+                        </div>
                     </div>
-                        
-                    <label for="status">Select Status</label>
-                    <select name="status" id="status">
-                        <option value="In stock" {% if edits.status == 'in_stock' %}selected{% endif %}>In stock</option>
-                        <option value="Out of stock" {% if edits.status == 'out_of_stock' %}selected{% endif %}>Out of stock</option>
-                    </select>
-                    
-                    <label for="product_type">Select product type</label>
-                    <select name="product_type" id="product_type">
-                        <option value="Electronics" {% if edits.product_types == 'electronics' %}selected{% endif %}>Electronics</option>
-                        <option value="Clothing" {% if edits.product_types == 'clothing' %}selected{% endif %}>Clothing</option>
-                        <option value="Grocery" {% if edits.product_types == 'grocery' %}selected{% endif %}>Grocery</option>
-                        <option value="Fitness" {% if edits.product_types == 'fitness' %}selected{% endif %}>Fitness</option>
-                        <option value="Toys" {% if edits.product_types == 'toys' %}selected{% endif %}>Toys</option>
-                    </select>
-                    
-                    <label for="vendor_name">Enter vendor name</label>
-                    <input type="text" name="vendor_name" id="vendor_name"  value="{{ edits.vendor_name }}">
-                    <div class="popup-btn">
-                        <button class="btn" type="submit">Submit</button>
-                        <button class="delete-btn" type="submit">Delete</button>
-                    </div>
+                </form>
+            </div>
+            <a class="csv" href="#">Export as CSV</a>
+            <a class="product" id="log-out" href="{% url 'logout' %}">Logout</a>
+            {% endif %}
+        </nav>
+
+        <section>
+            <div class="search">
+                <form action="">
+                    <input class="input" type="text" name="text" id="text" placeholder="Search" required>
+                </form>
+                <!-- <a href=""></a> -->
+                <div class="icons">
+                    <a href="#" class="funnel"><ion-icon name="funnel-outline"></ion-icon></a>
+                    <a href="#" class="download"><ion-icon name="download-outline"></ion-icon></a>
+                    <a href="#" class="refresh"><ion-icon name="refresh-outline"></ion-icon></a>
                 </div>
             </div>
-        </form>  
-    </div>
-    <a class="csv" href="#">Export as CSV</a>
-    <a class="product" id="log-out" href="{% url 'logout' %}">Logout</a>
-    {% endif %}
-</nav>
 
-<section>
-    <div class="search">
-        <form action="">
-            <input class="input" type="text" name="text" id="text" placeholder="Search" required>
-        </form>
-        <!-- <a href=""></a> -->
-        <div class="icons">
-            <a href="#" class="funnel"><ion-icon name="funnel-outline"></ion-icon></a>
-            <a href="#" class="download"><ion-icon name="download-outline"></ion-icon></a>
-            <a href="#" class="refresh"><ion-icon name="refresh-outline"></ion-icon></a>
-        </div>
-    </div>
-    
-    
-    <div class="inventory-table">
-        
-        <table border="1" width="100%">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Product ID</th>
-                    <th>Type</th>
-                    <th>Status</th>
-                    <th>Count</th>
-                    <th>Vendor</th>
-                    <!-- <th>Action</th> -->
-                </tr>
-            </thead>
-            
-            <tbody>
-                {% for product in products %}
-                <tr>
-                    <th scope="row"><input type="checkbox"></th>
-                    <td colspan="1" style="text-align: center;">
-                        <button type="button" class="edit" id="row-btn-1" data-id="{{ product.id }}" onclick="openPopup(this)"
-                            data-product_id="{{ product.product_id }}"
-                            data-qty="{{ product.quantity }}"
-                            data-status="{{ product.status }}"
-                            data-type="{{ product.product_types }}"
-                            data-vendor_name="{{ product.vendor_name }}">
-                            {{ product.product_id }}
-                        </button>
-                    </td>
 
-                    <td colspan="1" style="text-align: center;">
-                        <button type="button" class="edit" id="row-btn-2" data-id="{{ product.id }}" onclick="openPopup(this)"
-                            data-product_id="{{ product.product_id }}"
-                            data-qty="{{ product.quantity }}"
-                            data-status="{{ product.status }}"
-                            data-type="{{ product.product_types }}"
-                            data-vendor_name="{{ product.vendor_name }}">
-                            {{ product.product_types }}
-                        </button>
-                    </td>
+            <div class="inventory-table">
 
-                    <td colspan="1" style="text-align: center;">
-                        <button type="button" class="edit" id="row-btn-3" data-id="{{ product.id }}" onclick="openPopup(this)"
-                            data-product_id="{{ product.product_id }}"
-                            data-qty="{{ product.quantity }}"
-                            data-status="{{ product.status }}"
-                            data-type="{{ product.product_types }}"
-                            data-vendor_name="{{ product.vendor_name }}">
-                            {{ product.status }}
-                        </button>
-                    </td>
+                <table border="1" width="100%">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Product ID</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Count</th>
+                            <th>Vendor</th>
+                            <!-- <th>Action</th> -->
+                        </tr>
+                    </thead>
 
-                    <td colspan="1" style="text-align: center;">
-                        <button type="button" class="edit" id="row-btn-4" data-id="{{ product.id }}" onclick="openPopup(this)"
-                            data-product_id="{{ product.product_id }}"
-                            data-qty="{{ product.quantity }}"
-                            data-status="{{ product.status }}"
-                            data-type="{{ product.product_types }}"
-                            data-vendor_name="{{ product.vendor_name }}">
-                            {{ product.quantity }}
-                        </button>
-                    </td>
+                    <tbody>
+                        {% for product in products %}
+                        <tr>
+                            <th scope="row"><input type="checkbox"></th>
+                            <td colspan="1" style="text-align: center;">
+                                <button type="button" class="edit" id="row-btn-1" data-id="{{ product.id }}"
+                                    onclick="openPopup(this)" data-product_id="{{ product.product_id }}"
+                                    data-qty="{{ product.quantity }}" data-status="{{ product.status }}"
+                                    data-type="{{ product.product_types }}"
+                                    data-vendor_name="{{ product.vendor_name }}">
+                                    {{ product.product_id }}
+                                </button>
+                            </td>
 
-                    <td colspan="1" style="text-align: center;">
-                        <button type="button" class="edit" id="row-btn-5" data-id="{{ product.id }}" onclick="openPopup(this)"
-                            data-product_id="{{ product.product_id }}"
-                            data-qty="{{ product.quantity }}"
-                            data-status="{{ product.status }}"
-                            data-type="{{ product.product_types }}"
-                            data-vendor_name="{{ product.vendor_name }}">
-                            {{ product.vendor_name }}
-                        </button>
-                    </td>
-                </tr>
-{% empty %}
-<p style="color:red; text-align: center;">NO PRODUCTS FOUND</p>
-{% endfor %}
-</tbody>
-</table>
-</div>
+                            <td colspan="1" style="text-align: center;">
+                                <button type="button" class="edit" id="row-btn-2" data-id="{{ product.id }}"
+                                    onclick="openPopup(this)" data-product_id="{{ product.product_id }}"
+                                    data-qty="{{ product.quantity }}" data-status="{{ product.status }}"
+                                    data-type="{{ product.product_types }}"
+                                    data-vendor_name="{{ product.vendor_name }}">
+                                    {{ product.product_types }}
+                                </button>
+                            </td>
 
-</section>
-</main>
-<script src="{% static 'js/script.js' %}" defer></script>
+                            <td colspan="1" style="text-align: center;">
+                                <button type="button" class="edit" id="row-btn-3" data-id="{{ product.id }}"
+                                    onclick="openPopup(this)" data-product_id="{{ product.product_id }}"
+                                    data-qty="{{ product.quantity }}" data-status="{{ product.status }}"
+                                    data-type="{{ product.product_types }}"
+                                    data-vendor_name="{{ product.vendor_name }}">
+                                    {{ product.status }}
+                                </button>
+                            </td>
+
+                            <td colspan="1" style="text-align: center;">
+                                <button type="button" class="edit" id="row-btn-4" data-id="{{ product.id }}"
+                                    onclick="openPopup(this)" data-product_id="{{ product.product_id }}"
+                                    data-qty="{{ product.quantity }}" data-status="{{ product.status }}"
+                                    data-type="{{ product.product_types }}"
+                                    data-vendor_name="{{ product.vendor_name }}">
+                                    {{ product.quantity }}
+                                </button>
+                            </td>
+
+                            <td colspan="1" style="text-align: center;">
+                                <button type="button" class="edit" id="row-btn-5" data-id="{{ product.id }}"
+                                    onclick="openPopup(this)" data-product_id="{{ product.product_id }}"
+                                    data-qty="{{ product.quantity }}" data-status="{{ product.status }}"
+                                    data-type="{{ product.product_types }}"
+                                    data-vendor_name="{{ product.vendor_name }}">
+                                    {{ product.vendor_name }}
+                                </button>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <p style="color:red; text-align: center;">NO PRODUCTS FOUND</p>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+    </main>
+    <script src="{% static 'js/script.js' %}" defer></script>
 </body>
+
 </html>

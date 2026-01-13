@@ -46,6 +46,10 @@ def dashboard(request):
 def edit(request, id):
     e = get_object_or_404(Products, id=id)
     if request.method == 'POST':
+        if request.POST.get('action') == 'delete':
+            e.delete()
+            return redirect('home:dashboard')
+        
         quantity = request.POST['quantity']
         status = request.POST['status']
         product_types=request.POST['product_type']
@@ -58,7 +62,3 @@ def edit(request, id):
         return redirect('home:dashboard')
     return render(request, 'edit.html', {'edits':e})
 
-def remove_item(request, id=id):
-    item = Products.objects.get(id=id)
-    item.delete()
-    return redirect('home:dashboard')

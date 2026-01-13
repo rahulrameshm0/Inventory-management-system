@@ -8,9 +8,6 @@ const form = document.getElementById('product-form');
 const deleteBtn = document.querySelector('.delete');
 const deleteForm = document.getElementById('delete-form');
 
-let popup = document.getElementById('popup');
-let closepopup = document.getElementById('closePopup');
-
 
 if(button){
     button.addEventListener('click', () => {
@@ -34,15 +31,6 @@ if (subtract && input){
 
 }
 
-// if (dashboardButton){
-//     dashboardButton.addEventListener('click',(e) => {
-//         e.preventDefault()
-//         window.location.href = dashboardButton.dataset.url;
-//         // console.log('click')
-// });
-// }
-
-
 function openPopup(btn=null) {
     popup.classList.add('open-popup');
 
@@ -50,12 +38,10 @@ function openPopup(btn=null) {
     if (!btn) {
         form.reset();
         document.getElementById('quantity').value = 0;
-        deleteForm.action = "";
         return;
     }
     
     form.action = `/edit/${btn.dataset.id}/`;
-    // deleteForm.action = `/delete/${btn.dataset.id}`;
 
     // EDIT MODE
     document.getElementById('product_id').value = btn.dataset.product_id;
