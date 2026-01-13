@@ -40,6 +40,8 @@ function openPopup(btn=null) {
         document.getElementById('quantity').value = 0;
         return;
     }
+
+    
     
     form.action = `/edit/${btn.dataset.id}/`;
 

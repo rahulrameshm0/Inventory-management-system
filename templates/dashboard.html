@@ -11,14 +11,14 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <!-- Style -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Inventory Management</title>
 </head>
 
 <body>
     <main>
         <nav class="nav-bar">
-            <p class="inventory">Inventory dsaboard</p>
+            <p class="inventory">RR Inventory</p>
             {% if user.is_authenticated %}
             <div class="input-container">
                 <button type="button" class="btn-1" data-url="#" onclick="openPopup()">Add new product</button>
@@ -60,27 +60,20 @@
                                 <button class="delete-btn" name="action" type="submit" value="delete">Delete</button>
                             </div>
                         </div>
+                        <a class="product" id="log-out" href="{% url 'logout' %}">Logout</a>
                     </div>
                 </form>
             </div>
-            <a class="csv" href="#">Export as CSV</a>
-            <a class="product" id="log-out" href="{% url 'logout' %}">Logout</a>
             {% endif %}
         </nav>
 
-        <section>
+        <section class="section-1">
             <div class="search">
-                <form action="">
+                <form action="" method="GET">
                     <input class="input" type="text" name="text" id="text" placeholder="Search" required>
                 </form>
-                <!-- <a href=""></a> -->
-                <div class="icons">
-                    <a href="#" class="funnel"><ion-icon name="funnel-outline"></ion-icon></a>
-                    <a href="#" class="download"><ion-icon name="download-outline"></ion-icon></a>
-                    <a href="#" class="refresh"><ion-icon name="refresh-outline"></ion-icon></a>
-                </div>
+                <button id="search-btn">Search</button>
             </div>
-
 
             <div class="inventory-table">
 
@@ -100,7 +93,7 @@
                     <tbody>
                         {% for product in products %}
                         <tr>
-                            <th scope="row"><input type="checkbox"></th>
+                            <th scope="row" class="checkbox"><input type="checkbox" name="checkbox" id="checkbox"></th>
                             <td colspan="1" style="text-align: center;">
                                 <button type="button" class="edit" id="row-btn-1" data-id="{{ product.id }}"
                                     onclick="openPopup(this)" data-product_id="{{ product.product_id }}"
