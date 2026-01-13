@@ -38,6 +38,15 @@ h2{
     background: #2b2f5b;
 }
 
+#login{
+    text-decoration: none;
+    color: rgb(222, 228, 234);
+}
+
+.login{
+    text-decoration: none;
+    color: rgb(156, 101, 180);
+}
 
 .img-section{
     display: flex;
@@ -78,6 +87,7 @@ button{
     border: 1px solid rgb(81, 186, 81);
     border-radius: 0.5rem;
     margin-top: 1.6rem;
+    margin-bottom: 1.5rem;
     width: 100%;
 }
 

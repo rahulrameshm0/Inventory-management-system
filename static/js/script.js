@@ -5,6 +5,8 @@ const input = document.querySelector('.qty-input');
 const alerting = document.querySelector('.alerting');
 const dashboardButton = document.querySelector('.btn-1');
 const form = document.getElementById('product-form');
+const deleteBtn = document.querySelector('.delete');
+const deleteForm = document.getElementById('delete-form');
 
 let popup = document.getElementById('popup');
 let closepopup = document.getElementById('closePopup');
@@ -41,17 +43,19 @@ if (subtract && input){
 // }
 
 
-function openPopup(btn = null) {
+function openPopup(btn=null) {
     popup.classList.add('open-popup');
 
     // ADD MODE
     if (!btn) {
         form.reset();
         document.getElementById('quantity').value = 0;
+        deleteForm.action = "";
         return;
     }
     
     form.action = `/edit/${btn.dataset.id}/`;
+    // deleteForm.action = `/delete/${btn.dataset.id}`;
 
     // EDIT MODE
     document.getElementById('product_id').value = btn.dataset.product_id;

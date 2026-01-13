@@ -142,10 +142,15 @@ td{
     color: blue;
 }
 
-.delete{
-    cursor: pointer;
-    color: red;
-    margin: 0.8rem;
+.delete-btn{
+    margin-top: 1.2rem;
+    background-color: rgb(205, 58, 32);
+    color:hsl(0, 0%, 100%);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+    width: 100%;
 }
 
 .edit-dlt-btn{
@@ -271,6 +276,7 @@ label{
     padding: 0.6rem 1.2rem;
     border-radius: 0.5rem;
     transition: all 0.3s;
+    width: 100%;
 }
 
 .btn:hover{
@@ -319,4 +325,37 @@ label{
 .input-container{
     display: flex;
     align-items: center;
+}
+
+#row-btn-1{
+    color: #555;
+    font-size: 1.2rem;
+}
+
+#row-btn-2{
+    color: #10633e;
+    font-size: 1.2rem;
+    
+}
+
+#row-btn-3{
+    color: #4aa2b8;
+    font-size: 1.2rem;
+}
+
+#row-btn-4{
+    color: #b17526;
+    font-size: 1.2rem;
+}
+
+#row-btn-5{
+    color: #2a71a8;
+    font-size: 1.2rem;
+}
+
+.popup-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
 }
