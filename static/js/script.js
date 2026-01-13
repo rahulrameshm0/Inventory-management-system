@@ -31,7 +31,7 @@ if (subtract && input){
 
 }
 
-function openPopup(btn=null) {
+function openPopup(btn = null) {
     popup.classList.add('open-popup');
 
     // ADD MODE
@@ -40,11 +40,8 @@ function openPopup(btn=null) {
         document.getElementById('quantity').value = 0;
         return;
     }
-
-    
     
     form.action = `/edit/${btn.dataset.id}/`;
-
     // EDIT MODE
     document.getElementById('product_id').value = btn.dataset.product_id;
     document.getElementById('quantity').value = btn.dataset.qty;

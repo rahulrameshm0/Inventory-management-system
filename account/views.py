@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from . models import Account
 from django.contrib import messages
 
+charactors = ['!@#$%^&*()-+']
 
 def sign_in(request):
     if request.method == 'POST':
@@ -35,6 +36,9 @@ def sign_up(request):
             return redirect('signup')
         if password != confirm_password:
             messages.error(request, 'Password does not match')
+            return redirect('signup')
+        if len(username) < 5:
+            messages.error(request, 'The username should atleast have 5 or more characters')
             return redirect('signup')
         
         creat_user = User.objects.create_user(username=username, email=email, password=password)
