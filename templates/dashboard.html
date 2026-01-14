@@ -11,7 +11,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <!-- Style -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1">
     <title>Inventory Management</title>
 </head>
 
@@ -26,7 +26,8 @@
                 <form id="product-form" action="{% url 'home:dashboard' %}" method="POST">
                     {% csrf_token %}
                         <div class="input-group popup" id="popup">
-
+                            <button id="close-btn" onclick="closePopup()"><ion-icon name="close"></ion-icon></button>
+                    
                             <label for="id">Enter product ID</label>
                             <input type="number" name="product_id" id="product_id" required>
 

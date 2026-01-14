@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from . models import Account
 from django.contrib import messages
 
-charactors = ['!@#$%^&*()-+']
+# charactors = ['!@#$%^&*()-+']
 
 def sign_in(request):
     if request.method == 'POST':

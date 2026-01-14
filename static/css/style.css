@@ -25,6 +25,15 @@ body{
     /* margin-top: 2.2rem; */
 }
 
+#close-btn{
+    border: none;
+    background: transparent;
+    text-align: right;
+    font-size: 1.8rem;
+    color: rgb(118, 113, 113);
+    cursor: pointer;
+}
+
 .btn-1{
     border: 3px solid rgb(118, 172, 118);
     color: rgb(118, 172, 118);
