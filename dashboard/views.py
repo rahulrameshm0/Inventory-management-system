@@ -5,7 +5,6 @@ from django.views.decorators.cache import never_cache
 from django.contrib import messages
 from django.db import IntegrityError
 from django.contrib.auth.models import User
-import dashboard
 
 @never_cache
 @login_required(login_url='login')
@@ -25,7 +24,6 @@ def dashboard(request):
             messages.error(request, 'The id should be unique')
             return redirect('home:dashboard')
         
-        
         Products.objects.create(
             user = request.user,
             product_id = product_id,
@@ -35,7 +33,6 @@ def dashboard(request):
             vendor_name = vendor_name
         )
         
-     
         messages.error(request, "Product ID should be unique")
         return redirect('home:dashboard')
     

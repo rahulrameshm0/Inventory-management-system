@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from . models import Account
 from django.contrib import messages
-
+from django.contrib.auth.decorators import login_required
 # charactors = ['!@#$%^&*()-+']
 
 def sign_in(request):
@@ -13,8 +13,12 @@ def sign_in(request):
 
         user = authenticate(username=username, password=password)
         if user is not None:
-            login(request, user)
-            return redirect('home:dashboard')
+            if user.is_superuser:
+                login(request, user)
+                return redirect('home:dashboard')
+            else:
+                messages.error(request, 'only admins are allowed!')
+                return redirect('home:dashboard')
         else:
             messages.error(request, 'Username or password is incorrect')
             return redirect('login')
