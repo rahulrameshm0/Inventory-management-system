@@ -26,4 +26,4 @@ class Products(models.Model):
     vendor_name = models.CharField(max_length=150, blank=False)
 
     def __str__(self):
-        return str(self.product_id)
+        return str(self.product_id) 
