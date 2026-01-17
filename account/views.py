@@ -12,8 +12,11 @@ def sign_in(request):
 
         user = authenticate(username=username, password=password)
         if user is not None:
-            login(request, user)
-            return redirect('home:dashboard')
+            if user.is_superuser:
+                login(request, user)
+                return redirect('home:dashboard')
+            else:
+                return redirect('user')
         else:
             messages.error(request, 'Username or password is incorrect')
             return redirect('login')
