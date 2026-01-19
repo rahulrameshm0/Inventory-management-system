@@ -30,7 +30,7 @@ DEBUG = True
 CSRF_TRUSTED_ORIGINS = [
     "https://*.up.railway.app",
 ]
-
+CSRF_TRUSTED_ORIGINS = ['https://inventory-management-system-1-qcui.onrender.com']
 ALLOWED_HOSTS = ['*']
 
 
