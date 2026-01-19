@@ -7,7 +7,7 @@ const dashboardButton = document.querySelector('.btn-1');
 const form = document.getElementById('product-form');
 const deleteBtn = document.querySelector('.delete');
 const deleteForm = document.getElementById('delete-form');
-const upload_img = document.getElementById('images');
+const upload_img = document.getElementById('image');
 
 
 if(button){
@@ -49,7 +49,7 @@ function openPopup(btn = null) {
     document.getElementById('status').value = btn.dataset.status;
     document.getElementById('product_type').value = btn.dataset.type;
     document.getElementById('vendor_name').value = btn.dataset.vendor_name;
-    document.getElementById('img').value = btn.dataset.img;
+    document.getElementById('image').value = btn.dataset.images;
 }
 
 function closePopup(){   
