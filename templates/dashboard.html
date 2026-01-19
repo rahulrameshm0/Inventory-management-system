@@ -23,7 +23,7 @@
             <div class="input-container">
                 <button type="button" class="btn-1" data-url="#" onclick="openPopup()">Add new product</button>
 
-                <form id="product-form" action="{% url 'home:dashboard' %}" method="POST">
+                <form id="product-form" action="{% url 'home:dashboard' %}" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                         <div class="input-group popup" id="popup">
                             <button id="close-btn" onclick="closePopup()"><ion-icon name="close"></ion-icon></button>
@@ -55,6 +55,9 @@
 
                             <label for="vendor_name">Enter vendor name</label>
                             <input type="text" name="vendor_name" id="vendor_name" value="{{ edits.vendor_name }}">
+                            
+                            <label for="image">Upload File</label>
+                            <input type="file" name="image" id="image" value="{{ edits.image }}">
 
                             <div class="popup-btn">
                                 <button class="btn" type="submit">Submit</button>
@@ -87,7 +90,7 @@
                             <th>Status</th>
                             <th>Count</th>
                             <th>Vendor</th>
-                            <!-- <th>Action</th> -->
+                            <th>Images</th>
                         </tr>
                     </thead>
 
@@ -100,7 +103,8 @@
                                     onclick="openPopup(this)" data-product_id="{{ product.product_id }}"
                                     data-qty="{{ product.quantity }}" data-status="{{ product.status }}"
                                     data-type="{{ product.product_types }}"
-                                    data-vendor_name="{{ product.vendor_name }}">
+                                    data-vendor_name="{{ product.vendor_name }}"
+                                    data-img="{{ product.image }}">
                                     {{ product.product_id }}
                                 </button>
                             </td>
@@ -110,7 +114,8 @@
                                     onclick="openPopup(this)" data-product_id="{{ product.product_id }}"
                                     data-qty="{{ product.quantity }}" data-status="{{ product.status }}"
                                     data-type="{{ product.product_types }}"
-                                    data-vendor_name="{{ product.vendor_name }}">
+                                    data-vendor_name="{{ product.vendor_name }}"
+                                    data-img="{{ product.image }}">
                                     {{ product.product_types }}
                                 </button>
                             </td>
@@ -120,7 +125,9 @@
                                     onclick="openPopup(this)" data-product_id="{{ product.product_id }}"
                                     data-qty="{{ product.quantity }}" data-status="{{ product.status }}"
                                     data-type="{{ product.product_types }}"
-                                    data-vendor_name="{{ product.vendor_name }}">
+                                    data-vendor_name="{{ product.vendor_name }}"
+                                    data-vendor_name="{{ product.image }}"
+                                    >
                                     {{ product.status }}
                                 </button>
                             </td>
@@ -130,7 +137,8 @@
                                     onclick="openPopup(this)" data-product_id="{{ product.product_id }}"
                                     data-qty="{{ product.quantity }}" data-status="{{ product.status }}"
                                     data-type="{{ product.product_types }}"
-                                    data-vendor_name="{{ product.vendor_name }}">
+                                    data-vendor_name="{{ product.vendor_name }}"
+                                    data-vendor_name="{{ product.image }}">
                                     {{ product.quantity }}
                                 </button>
                             </td>
@@ -140,8 +148,21 @@
                                     onclick="openPopup(this)" data-product_id="{{ product.product_id }}"
                                     data-qty="{{ product.quantity }}" data-status="{{ product.status }}"
                                     data-type="{{ product.product_types }}"
-                                    data-vendor_name="{{ product.vendor_name }}">
+                                    data-vendor_name="{{ product.vendor_name }}"
+                                    data-img="{{ product.image }}"
+                                    >
                                     {{ product.vendor_name }}
+                                </button>
+                            </td>
+                            <td colspan="1" style="text-align: center;">
+                                <button type="button" class="edit" id="row-btn-5" data-id="{{ product.id }}"
+                                    onclick="openPopup(this)" data-product_id="{{ product.product_id }}"
+                                    data-qty="{{ product.quantity }}" data-status="{{ product.status }}"
+                                    data-type="{{ product.product_types }}"
+                                    data-vendor_name="{{ product.vendor_name }}"
+                                    data-img="{{ product.image }}"
+                                    >
+                                    {{ product.image }}
                                 </button>
                             </td>
                         </tr>

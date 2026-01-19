@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 @login_required(login_url='login')
 def dashboard(request):
     if request.method == "POST":
+        image = request.FILES.get('image')
         product_id = request.POST.get('product_id')
         quantity = request.POST.get('quantity')
         product_types = request.POST.get('product_type')
@@ -26,15 +27,16 @@ def dashboard(request):
         
         Products.objects.create(
             user = request.user,
+            image=image,
             product_id = product_id,
             quantity = quantity,
             product_types = product_types,
             status = status,
             vendor_name = vendor_name
         )
-        
-        messages.error(request, "Product ID should be unique")
         return redirect('home:dashboard')
+        
+        # messages.error(request, "Product ID should be unique")
     
     products = Products.objects.all().order_by('product_id')
     return render(request, 'dashboard.html',{'products': products})
@@ -55,6 +57,8 @@ def edit(request, id):
         e.status=status
         e.product_types=product_types
         e.vendor_name=vendor_name
+        if 'image' in request.FILES:
+            e.image = request.FILES['image']
         e.save()
         return redirect('home:dashboard')
     return render(request, 'edit.html', {'edits':e})
