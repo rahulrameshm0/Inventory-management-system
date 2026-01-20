@@ -26,9 +26,9 @@
             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Search">
             <a href="{% url 'cart' %}" class="m-4 fs-2"><ion-icon name="cart"></ion-icon></a>
             {% if user.is_authenticated %}
-                <a href="{% url 'user' %}" class="btn btn-outline-success" type="submit">LOGOUT</a>
+                <a href="{% url 'user' %}" class="btn-outline-danger" type="submit">LOGOUT</a>
             {% else %}
-                <a href="{% url 'login' %}" class="btn btn-outline-danger" type="submit">LOGIN</a>
+                <a href="{% url 'login' %}" class="btn btn-outline-success" type="submit">LOGIN</a>
             {% endif %}
             </div>
         </div>
