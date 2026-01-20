@@ -5,6 +5,7 @@ from . models import Account
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
+
 def sign_in(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -16,6 +17,7 @@ def sign_in(request):
                 login(request, user)
                 return redirect('home:dashboard')
             else:
+                login(request, user)
                 return redirect('user')
         else:
             messages.error(request, 'Username or password is incorrect')

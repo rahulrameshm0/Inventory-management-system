@@ -5,12 +5,11 @@ from django.core.paginator import Paginator
 
 def user(request):
     products = Products.objects.all()
-    # get_page
+    
     page_number = request.GET.get('page')
     pagintor = Paginator(products, 6)
     page_obj = pagintor.get_page(page_number)
-   
-   
+
     return render(request, 'user-dashboard.html', {'page_obj':page_obj})
 
 def cart(request):
