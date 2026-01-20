@@ -31,7 +31,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.up.railway.app",
 ]
 CSRF_TRUSTED_ORIGINS = ['https://inventory-management-system-1-qcui.onrender.com']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['inventory-management-system-1-qcui.onrender.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
