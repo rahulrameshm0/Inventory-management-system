@@ -1,10 +1,17 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from add_products.models import Products
+from django.core.serializers import serialize
 from django.core.paginator import Paginator
 
 def user(request):
     products = Products.objects.all()
-    return render(request, 'user-dashboard.html', {'products': products})
+    # get_page
+    page_number = request.GET.get('page')
+    pagintor = Paginator(products, 6)
+    page_obj = pagintor.get_page(page_number)
+   
+   
+    return render(request, 'user-dashboard.html', {'page_obj':page_obj})
 
 def cart(request):
     return render(request, 'cart.html')
