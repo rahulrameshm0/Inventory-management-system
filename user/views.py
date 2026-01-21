@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect, get_object_or_404
 from add_products.models import Products
 from django.core.serializers import serialize
 from django.core.paginator import Paginator
+from django.contrib.auth import login, logout
 
 def user(request):
     products = Products.objects.all()
@@ -21,3 +22,7 @@ def product_details(request, id):
 
 def product_list(request):
     pass
+
+def sign_out(request):
+    logout(request)
+    return redirect('')
