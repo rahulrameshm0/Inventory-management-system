@@ -30,6 +30,9 @@
                     
                             <label for="id">Enter product ID</label>
                             <input type="number" name="product_id" id="product_id" required>
+                            
+                            <label for="id">Price</label>
+                            <input type="number" name="price" id="price"> 
 
                             <label for="number">Enter quantity to add</label>
                             <div class="qty-box">
@@ -90,6 +93,7 @@
                             <th>Status</th>
                             <th>Count</th>
                             <th>Vendor</th>
+                            <th>Price</th>
                             <th>Images</th>
                         </tr>
                     </thead>
@@ -104,7 +108,9 @@
                                     data-qty="{{ product.quantity }}" data-status="{{ product.status }}"
                                     data-type="{{ product.product_types }}"
                                     data-vendor_name="{{ product.vendor_name }}"
-                                    data-img="{{ product.image }}">
+                                    data-image="{{ product.image }}"
+                                    data-price="{{ product.price }}"
+                                    >
                                     {{ product.product_id }}
                                 </button>
                             </td>
@@ -115,7 +121,9 @@
                                     data-qty="{{ product.quantity }}" data-status="{{ product.status }}"
                                     data-type="{{ product.product_types }}"
                                     data-vendor_name="{{ product.vendor_name }}"
-                                    data-img="{{ product.image }}">
+                                    data-image="{{ product.image }}"
+                                    data-price="{{ product.price }}"
+                                    >
                                     {{ product.product_types }}
                                 </button>
                             </td>
@@ -126,7 +134,8 @@
                                     data-qty="{{ product.quantity }}" data-status="{{ product.status }}"
                                     data-type="{{ product.product_types }}"
                                     data-vendor_name="{{ product.vendor_name }}"
-                                    data-vendor_name="{{ product.image }}"
+                                    data-image="{{ product.image }}"
+                                    data-price="{{ product.price }}"
                                     >
                                     {{ product.status }}
                                 </button>
@@ -138,7 +147,9 @@
                                     data-qty="{{ product.quantity }}" data-status="{{ product.status }}"
                                     data-type="{{ product.product_types }}"
                                     data-vendor_name="{{ product.vendor_name }}"
-                                    data-vendor_name="{{ product.image }}">
+                                    data-image="{{ product.image }}"
+                                    data-price="{{ product.price }}"
+                                    >
                                     {{ product.quantity }}
                                 </button>
                             </td>
@@ -150,17 +161,33 @@
                                     data-type="{{ product.product_types }}"
                                     data-vendor_name="{{ product.vendor_name }}"
                                     data-image="{{ product.image }}"
+                                    data-price="{{ product.price }}"
                                     >
                                     {{ product.vendor_name }}
                                 </button>
                             </td>
+
                             <td colspan="1" style="text-align: center;">
                                 <button type="button" class="edit" id="row-btn-5" data-id="{{ product.id }}"
                                     onclick="openPopup(this)" data-product_id="{{ product.product_id }}"
                                     data-qty="{{ product.quantity }}" data-status="{{ product.status }}"
                                     data-type="{{ product.product_types }}"
                                     data-vendor_name="{{ product.vendor_name }}"
-                                    data-images="{{ product.image }}"
+                                    data-image="{{ product.image }}"
+                                    data-price="{{ product.price }}"
+                                    >
+                                    {{ product.price }}
+                                </button>
+                            </td>
+
+                            <td colspan="1" style="text-align: center;">
+                                <button type="button" class="edit" id="row-btn-5" data-id="{{ product.id }}"
+                                    onclick="openPopup(this)" data-product_id="{{ product.product_id }}"
+                                    data-qty="{{ product.quantity }}" data-status="{{ product.status }}"
+                                    data-type="{{ product.product_types }}"
+                                    data-vendor_name="{{ product.vendor_name }}"
+                                    data-image="{{ product.image }}"
+                                    data-price="{{ product.price }}"
                                     >
                                     {{ product.image }}
                                 </button>

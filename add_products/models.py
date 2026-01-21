@@ -22,6 +22,7 @@ class Products(models.Model):
     product_id = models.IntegerField(unique=True)
     quantity = models.CharField(max_length=150)
     status = models.CharField(max_length=20,choices=PRODUCT_STATUS)
+    price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     product_types = models.CharField(max_length=20, choices=PRODUCT_TYPES)
     vendor_name = models.CharField(max_length=150, blank=False)
     image = models.ImageField(upload_to='products/',blank=True, null=True)

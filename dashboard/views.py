@@ -13,6 +13,7 @@ def dashboard(request):
         image = request.FILES.get('image')
         product_id = request.POST.get('product_id')
         quantity = request.POST.get('quantity')
+        price = request.POST.get('price')
         product_types = request.POST.get('product_type')
         status = request.POST.get('status')
         vendor_name = request.POST.get('vendor_name')
@@ -28,6 +29,7 @@ def dashboard(request):
         Products.objects.create(
             user = request.user,
             image=image,
+            price=price,
             product_id = product_id,
             quantity = quantity,
             product_types = product_types,
@@ -51,12 +53,21 @@ def edit(request, id):
         
         quantity = request.POST['quantity']
         status = request.POST['status']
-        product_types=request.POST['product_type']
-        vendor_name=request.POST['vendor_name']
+        product_types = request.POST['product_type']
+        vendor_name = request.POST['vendor_name']
+        image = request.FILES.get('image')
+        
         e.quantity=quantity
         e.status=status
         e.product_types=product_types
         e.vendor_name=vendor_name
+        e.image=image
+
+        price = request.POST.get('price')
+
+        if price:
+            e.price = price
+
         if 'image' in request.FILES:
             e.image = request.FILES['image']
         e.save()
