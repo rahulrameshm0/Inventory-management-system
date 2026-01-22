@@ -18,7 +18,7 @@
 <body class="bg-dark">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand text-secondary" href="#">RR STORE</a>
+            <a class="navbar-brand text-secondary" href="{% url 'user' %}">RR STORE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span><ion-icon class="fs-1 text-secondary" name="menu"></ion-icon></span>
             </button>
@@ -26,9 +26,9 @@
                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Search">
                 <a href="{% url 'cart' %}" class="m-4 fs-2"><ion-icon name="cart"></ion-icon></a>
                 {% if user.is_authenticated %}
-                <a href="{% url 'logout' %}" class="m-4 text-danger text-decoration-none">LOGOUT</a>
+                <a href="{% url 'logout' %}" class="m-4 text-white p-2 rounded bg-danger text-decoration-none">LOGOUT</a>
                 {% else %}
-                <a href="{% url 'login' %}" class="m-4 text-secondary text-decoration-none">LOGIN</a>
+                <a href="{% url 'login' %}" class="m-4 text-white p-2  rounded bg-primary text-decoration-none">LOGIN</a>
                 {% endif %}
             </div>
         </div>
