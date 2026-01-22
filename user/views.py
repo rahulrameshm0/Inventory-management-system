@@ -17,12 +17,8 @@ def cart(request):
     return render(request, 'cart.html')
 
 def product_details(request, id):
-    product =  get_object_or_404(id=id)
-    return render(request, 'product-details.html')
+    product =  get_object_or_404(Products, id=id)
+    return render(request, 'product-details.html', {'product': product})
 
 def product_list(request):
     pass
-
-def sign_out(request):
-    logout(request)
-    return redirect('')

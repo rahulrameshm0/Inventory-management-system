@@ -1,14 +1,16 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from  add_products.models import Products
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.views.decorators.cache import never_cache
 from django.contrib import messages
-from django.db import IntegrityError
 from django.contrib.auth.models import User
 
-@never_cache
-@login_required(login_url='login')
+# @never_cache
+@login_required
 def dashboard(request):
+    if not request.user.is_superuser:
+        return redirect('user')
+    
     if request.method == "POST":
         image = request.FILES.get('image')
         product_id = request.POST.get('product_id')
@@ -67,7 +69,6 @@ def edit(request, id):
 
         if price:
             e.price = price
-
         if 'image' in request.FILES:
             e.image = request.FILES['image']
         e.save()

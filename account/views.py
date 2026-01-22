@@ -7,6 +7,9 @@ from django.contrib.auth.decorators import login_required
 
 
 def sign_in(request):
+    if request.user.is_authenticated:
+        return redirect('user')
+    
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -55,4 +58,4 @@ def sign_up(request):
 
 def log_out(request):
     logout(request)
-    return redirect('login')
+    return redirect('user')
