@@ -60,7 +60,7 @@ body {
 .product-description {
     font-size: 15px;
     line-height: 1.7;
-    color: #555;
+    color: #d9d4d4 !important;
     margin-bottom: 20px;
 }
 
