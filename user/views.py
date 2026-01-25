@@ -11,7 +11,7 @@ def user(request):
     pagintor = Paginator(products, 6)
     page_obj = pagintor.get_page(page_number)
 
-    return render(request, 'user-dashboard.html', {'page_obj':page_obj})
+    return render(request, 'home.html', {'page_obj':page_obj})
 
 def cart(request):
     return render(request, 'cart.html')
