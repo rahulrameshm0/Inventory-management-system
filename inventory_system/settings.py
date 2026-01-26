@@ -51,6 +51,9 @@ INSTALLED_APPS = [
     'cart'
 ]
 
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',

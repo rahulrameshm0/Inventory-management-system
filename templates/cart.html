@@ -1,14 +1,10 @@
 {% extends "user-dashboard.html" %}
 {% load static %}
-{% block content %}
 
-<link rel="stylesheet" href="{% static 'css/cart.css' %}">
-        
-{% load bootstrap5 %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-        
 <title>CART</title>
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{{cart}}
     <body>
         <section class="h-100 h-custom bg-dark">
             <div class="container py-5 h-100">
@@ -25,16 +21,16 @@
                                             </div>
                                             <hr class="my-4">
                                             
-                                            {% if cart %}
-                                            {% for key, item in cart.items %}
+                                            {% if cart_items %}
+                                            {% for item in cart_items %}
                                                 <div class="row mb-4 d-flex justify-content-between align-items-center">
                                                     <div class="col-md-2 col-lg-2 col-xl-2">
                                                         <img
-                                                        src="{{ item.image }}"
+                                                        src="{{ item.products.image.url }}"
                                                         class="img-fluid rounded-3" alt="..">
                                                     </div>
                                                     <div class="col-md-3 col-lg-3 col-xl-3">
-                                                        <h6 class="mb-0">{{ item.name }}</h6>
+                                                        <h6 class="mb-0">{{ item.products.vendor_name }}</h6>
                                                     </div>
                                                     <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                                                         <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
@@ -51,7 +47,7 @@
                                                 </button>
                                             </div>
                                             <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                                <h6 class="mb-0">${{ item.price }}</h6>
+                                                <h6 class="mb-0">${{ item.products.price }}</h6>
                                             </div>
                                             <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                                 <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
@@ -117,5 +113,5 @@
             </div>
         </section>
     </body>
+{% endblock content %} 
 
-    {% endblock content %} 
