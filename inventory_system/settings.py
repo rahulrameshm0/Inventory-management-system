@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'add_products',
     'user',
     'bootstrap5',
-    'cart'
+    'cart',
+    'payment'
 ]
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
@@ -145,3 +146,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STRIPE_PUBLIC_KEY = ""
+STRIPE_SECRET_KEY = ""
+STRIPE_WEBHOOK_SECRET = ""
