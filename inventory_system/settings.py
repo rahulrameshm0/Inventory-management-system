@@ -47,9 +47,9 @@ INSTALLED_APPS = [
     'dashboard',
     'add_products',
     'user',
-    'bootstrap5',
+    'django_bootstrap5',
     'cart',
-    'payment'
+    'payment',
 ]
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
