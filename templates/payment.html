@@ -13,9 +13,10 @@
                     <h3 class="text-center mb-4 fw-bold">Payment Section</h3>
 
                     <!-- Course Info -->
-                    <div class="mb-4 text-center">  
-                        <span class="text-success fw-bold">{{ product.name }}</span><br>
-                        <span class="text-success fw-bold">{{ product_price }}$</span>
+                    <div class="mb-4 text-center">
+                      <div class="fw-bold">Product ID: {{ product.product_id }}</div>
+                      <div class="fw-bold">{{ product.vendor_name }}</div>
+                      <div class="fw-bold text-success">{{ product_price }} $</div>
                     </div>
 
                     <hr>
