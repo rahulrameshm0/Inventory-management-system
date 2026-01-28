@@ -27,5 +27,11 @@ class Products(models.Model):
     vendor_name = models.CharField(max_length=150, blank=False)
     image = models.ImageField(upload_to='products/',blank=True, null=True)
 
+    stripe_customer_id = models.CharField(max_length=255)
+    stripe_checkout_id = models.CharField(max_length=255, blank=True, null=True)
+    stripe_product_id = models.CharField(max_length=255)
+    currency = models.CharField(max_length=3)
+    has_paid = models.BooleanField(default=False)
+
     def __str__(self):
         return str(self.product_id) 
