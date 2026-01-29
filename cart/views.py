@@ -1,10 +1,12 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from  add_products.models import Products
 from django.contrib.auth.decorators import login_required
 from . models import Cart
 from add_products.models import Products
 import random
 from decimal import Decimal
+from . models import Cart
+import stripe
 
 @login_required(login_url='login')
 def cart(request):
@@ -39,3 +41,35 @@ def remove_cart_item(request, pk):
     cart_item = get_object_or_404(Cart, pk=pk, user=request.user)
     cart_item.delete()
     return redirect('cart')
+
+@login_required(login_url="login")
+def cart_checkout(request):
+    cart_items = Cart.objects.filter(user=request.user)
+
+    if not cart_items.exists():
+        return redirect("cart")
+
+    grand_total = sum(item.total_price() for item in cart_items)
+
+    checkout_session = stripe.checkout.Session.create(
+        mode="payment",
+        line_items=[
+            {
+                "price_data": {
+                    "currency": "usd",
+                    "product_data": {
+                        "name": "Cart Checkout",
+                    },
+                    "unit_amount": int(grand_total * 100),
+                },
+                "quantity": 1,
+            }
+        ],
+        success_url=request.build_absolute_uri(
+            reverse("payment_success")
+        ) + "?session_id={CHECKOUT_SESSION_ID}",
+        cancel_url=request.build_absolute_uri(reverse("cart")),
+    )
+
+    # 🔴 THIS LINE IS WHAT REDIRECTS TO PAYMENT
+    return redirect(checkout_session.url)

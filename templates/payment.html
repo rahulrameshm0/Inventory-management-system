@@ -6,33 +6,29 @@
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
 
-            <!-- Card -->
             <div class="card shadow-lg border-0">
                 <div class="card-body p-4">
 
                     <h3 class="text-center mb-4 fw-bold">Payment Section</h3>
 
-                    <!-- Course Info -->
                     <div class="mb-4 text-center">
-                      <div class="fw-bold">Product ID: {{ product.product_id }}</div>
-                      <div class="fw-bold">{{ product.vendor_name }}</div>
-                      <div class="fw-bold text-success">{{ product_price }} $</div>
+                        <div class="fw-bold">{{ product.vendor_name }}</div>
+                        <div class="fw-bold text-success">{{ product_price }} $</div>
                     </div>
 
                     <hr>
 
-                    <!-- Payment Form -->
-                    <form method="post" action="{% url 'payment_session' %}">
+                    <form method="post" action="{% url 'payment_session' product.id %}">
                         {% csrf_token %}
 
-                        <!-- Stripe price id -->
-                        <input type="hidden" name="price_id" value="price_1SuaR9EGORQTetsVIDwHzPur">
+                        <input type="hidden" name="product_id" value="{{ product.id }}">
                         <input type="hidden" name="quantity" value="1">
 
                         <button type="submit" class="btn btn-success w-100 py-2">
                             PAY
                         </button>
                     </form>
+
                 </div>
             </div>
 

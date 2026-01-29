@@ -154,4 +154,4 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
  
 STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY_TEST", default='secret')
-print("Stripe key loaded:", STRIPE_SECRET_KEY)
+STRIPE_WEBHOOK_SECRET = env("STRIPE_WEBHOOK_SECRET", default='webhook')

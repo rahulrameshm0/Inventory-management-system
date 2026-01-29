@@ -48,7 +48,7 @@
                                 <form action="{% url 'add_to_cart' product.id %}" method="POST">
                                     {% csrf_token %}
                                     <button class="add-to-cart btn btn-default" type="submit">add to cart</button>
-                                    <a href="{% url 'payment_session' %}" class="add-to-cart bg-warning btn btn-default">By Now</a>
+                                    <a href="{% url 'payment_session' product.id %}" class="add-to-cart bg-warning btn btn-default">By Now</a>
                                 </form>
                                 <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
                             </div>
