@@ -71,5 +71,4 @@ def cart_checkout(request):
         cancel_url=request.build_absolute_uri(reverse("cart")),
     )
 
-    # 🔴 THIS LINE IS WHAT REDIRECTS TO PAYMENT
     return redirect(checkout_session.url)
