@@ -1,22 +1,35 @@
 {% extends "user-dashboard.html" %}
 {% load static %}
+{% load django_bootstrap5%}
+{% bootstrap_css %}
 
 {% block content %}
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
 
-            <div class="card shadow-lg border-0">
+            <div class="card bg-dark text-light shadow-lg border-0 rounded-4">
                 <div class="card-body p-4">
 
-                    <h3 class="text-center mb-4 fw-bold">Payment Section</h3>
+                    <h3 class="text-center mb-4 fw-bold">
+                        Payment Section
+                    </h3>
 
                     <div class="mb-4 text-center">
-                        <div class="fw-bold">{{ product.vendor_name }}</div>
-                        <div class="fw-bold text-success">{{ product_price }} $</div>
+                      <div class="fw-semibold text-secondary">
+                          <img src="{{ product.image.url}}" alt="card-img" class="img-fluid rounded-3 shadow-sm">
+                      </div>
+
+                        <div class="fw-semibold text-secondary mt-2">
+                            {{ product.vendor_name }}
+                        </div>
+
+                        <div class="fw-bold fs-4 text-success mt-3">
+                            ${{ product_price }}
+                        </div>
                     </div>
 
-                    <hr>
+                    <hr class="border-secondary">
 
                     <form method="post" action="{% url 'payment_session' product.id %}">
                         {% csrf_token %}
@@ -24,8 +37,8 @@
                         <input type="hidden" name="product_id" value="{{ product.id }}">
                         <input type="hidden" name="quantity" value="1">
 
-                        <button type="submit" class="btn btn-success w-100 py-2">
-                            PAY
+                        <button type="submit" class="btn btn-success w-100 py-2 rounded-pill">
+                            Pay Now
                         </button>
                     </form>
 
