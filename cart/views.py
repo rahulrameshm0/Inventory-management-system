@@ -8,6 +8,10 @@ from decimal import Decimal
 from . models import Cart
 import stripe
 
+from django.conf import settings
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
+
 @login_required(login_url='login')
 def cart(request):
     cart_items = Cart.objects.filter(user=request.user)

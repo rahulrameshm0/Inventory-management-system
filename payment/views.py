@@ -4,8 +4,8 @@ from django.conf import settings
 from add_products.models import Products
 import stripe
 from django.contrib.auth.decorators import login_required
-stripe.api_key = settings.STRIPE_SECRET_KEY
 
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 @login_required(login_url='login')
 def payment_session(request,product_id):
