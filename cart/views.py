@@ -54,7 +54,7 @@ def cart_checkout(request):
         return redirect("cart")
 
     grand_total = sum(item.total_price() for item in cart_items)
-    Cart.objects.filter(user=request.user).delete()
+    Cart.objects.filter(user=request.user).delete() 
     checkout_session = stripe.checkout.Session.create(
         mode="payment",
         line_items=[
