@@ -3,7 +3,6 @@ from  add_products.models import Products
 from django.contrib.auth.decorators import login_required
 from . models import Cart
 from add_products.models import Products
-import random
 from decimal import Decimal
 from . models import Cart
 import stripe
@@ -55,6 +54,7 @@ def cart_checkout(request):
 
     grand_total = sum(item.total_price() for item in cart_items)
     Cart.objects.filter(user=request.user).delete() 
+
     checkout_session = stripe.checkout.Session.create(
         mode="payment",
         line_items=[
